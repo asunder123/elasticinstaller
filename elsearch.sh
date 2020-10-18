@@ -37,4 +37,3 @@ if answer = 1; then
 if answer = 2;then
 	sudo reboot
 fi	
-	
