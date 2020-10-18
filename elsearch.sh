@@ -19,8 +19,6 @@ echo "Update......\n"
 sudo apt update
 echo "Install elastic search ....\n"
 sudo apt install elasticsearch
-echo "System reboot.....\n"
-sudo reboot
 echo "Status of ssh....\n"
 sudo systemctl status ssh
 echo "Daemon Reload ....\n"
