@@ -35,4 +35,6 @@ if answer = 0;  then
 if answer = 1; then 
 	sudo reboot
 if answer = 2;then
-	sudo reboot	
+	sudo reboot
+fi	
+	
