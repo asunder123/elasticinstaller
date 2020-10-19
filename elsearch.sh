@@ -8,11 +8,13 @@ echo $PATH
 echo "Updating Ubuntu directories......\n"
 sudo apt update
 echo "Installing Java 8.......\n"
-sudo apt install openjdk-8-jdk
+JDK_TYPE = "openjdk-8-jdk"
+sudo apt install $JDK_TYPE
 echo "Installing https transport layer.....\n"
 sudo apt install apt-transport-https
 echo "Add Elastic Search key......\n"
-sudo   wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+ELASTIC_SEARCH = "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+sudo   wget -qO - $ELASTIC_SEARCH | sudo apt-key add -
 echo "Install stable package sources!"
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 echo "Update......\n"
@@ -29,11 +31,7 @@ echo "Check ssh status...\n"
 sudo systemctl status ssh
 echo "Start elastic search...\n"
 sudo systemctl service elasticsearch.service
-sudo ps x |grep -v grep |grep -c "processname"
-if answer = 1;  then 
-	sudo systemctl service start elasticsearch.service
-if answer = 0; then 
-	sudo reboot
-if answer = 2;then
-	sudo reboot
-fi	
+echo "Systemctl start elastic search service"
+sudo systemctl start elasticsearch.service
+echo "Process Name"
+sudo ps x | grep -v grep | grep -c "processname"	
