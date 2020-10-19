@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "auto remove...\n"
-sudo apt autoremove
+sudo apt autoremove | sudo apt uninstall elasticsearch | ps -ax
 echo"Check Java version"
 java -version
 echo "Path is ...\n"
@@ -27,14 +27,15 @@ echo "Daemon Reload ....\n"
 sudo systemctl daemon-reload
 echo "Elastic search service.....\n"
 sudo systemctl enable elasticsearch.service
-echo "Start elasticsearch service...\n"
-sudo systemctl start elasticsearch.service
-echo "start elastic search as a service...\n"
-sudo systemctl start elasticsearch.service
+echo "Check ssh status...\n"
+sudo systemctl status ssh
+echo "Start elastic search...\n"
+sudo systemctl service elasticsearch.service
 sudo ps x |grep -v grep |grep -c "processname"
-if answer = 0;  then 
-	sudo systemctl start elasticsearch.service
-if answer = 1; then 
+if answer = 1;  then 
+	sudo systemctl service start elasticsearch.service
+if answer = 0; then 
 	sudo reboot
 if answer = 2;then
-	sudo reboot	
+	sudo reboot
+fi	
