@@ -22,9 +22,6 @@ echo "Update......\n"
 sudo apt update
 echo "Install elastic search ....\n"
 sudo apt install elasticsearch
-echo "System reboot.....\n"
-sudo reboot
-echo "Daemon reload ....\n"
 sudo systemctl daemon-reload
 echo "Elastic search service.....\n"
 sudo systemctl enable elasticsearch.service
