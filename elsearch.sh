@@ -28,4 +28,4 @@ echo "Check ssh status...\n"
 sudo systemctl status ssh
 echo "Start elastic search...\n"
 sudo systemctl service elasticsearch start
-sudo ps | grep elastic
+sudo ps
