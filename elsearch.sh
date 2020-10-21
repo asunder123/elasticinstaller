@@ -4,7 +4,6 @@ sudo apt autoremove elasticsearch | sudo
 echo"Check Java version"
 sudo java -version
 echo "Path is ...\n"
-PATH="$HOME"
 echo $PATH
 echo "Updating Ubuntu directories......\n"
 sudo apt update
