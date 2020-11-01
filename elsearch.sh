@@ -4,7 +4,6 @@ sudo apt autoremove elasticsearch | sudo
 echo"Check Java version"
 sudo java -version
 echo "Path is ...\n"
-PATH="$HOME"
 echo $PATH
 echo "Updating Ubuntu directories......\n"
 sudo apt update
@@ -25,9 +24,12 @@ sudo apt install elasticsearch
 sudo systemctl daemon-reload
 echo "Elastic search service.....\n"
 sudo systemctl enable elasticsearch.service
+echo "Allow communication ports...\n"
+sudo ufw allow 0:400/tcp
 echo "Check ssh status...\n"
 sudo systemctl status ssh
 echo "Start elastic search...\n"
 sudo systemctl service elasticsearch start
-echo "Process Name....\n"
-sudo ps -a | grep -v grep | grep -c processname	
+echo "List running processes...\n"
+sudo ps -ax | ls -l
+
